@@ -59,8 +59,7 @@ export async function GET(request: Request) {
         query,
         variables: { username, from, to },
       }),
-      // Cache the result for 1 hour to prevent rate-limiting but keep it fresh
-      next: { revalidate: 3600 },
+      cache: "no-store", // CRUCIAL: Bypasses Next.js stale 2025 cache
     });
 
     if (!response.ok) {
@@ -93,8 +92,15 @@ export async function GET(request: Request) {
       }))
     );
 
-    // Strip future padded dates that GitHub implicitly attaches to the current week
-    const todayStr = now.toISOString().split("T")[0];
+    // Strip future padded dates, and strictly enforce Indian Local Time boundaries (IST, +05:30 offsets)
+    // using local formatting instead of UTC so that we don't accidentally fall back to "yesterday"
+    const localNow = new Date(now.getTime() + 5.5 * 60 * 60 * 1000);
+    const todayStr = localNow.toISOString().split("T")[0];
+    
+    // Specifically remove March 29, 2025 per user request to clean up the leading column
+    days = days.filter((d: any) => d.date !== "2025-03-29");
+
+    // Remove any future padded days strictly up to the local present day
     days = days.filter((d: any) => d.date <= todayStr);
 
     // Slice exactly 365 days to guarantee the perfect 1-year timeline leading into today
