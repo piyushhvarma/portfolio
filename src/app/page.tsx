@@ -10,6 +10,8 @@ import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
+import GithubCalendarComponent from "@/components/github-calendar";
+import VisitorCounter from "@/components/visitor-counter";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -130,6 +132,16 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <section id="github">
+        <div className="flex min-h-0 flex-col gap-y-4">
+          <BlurFade delay={BLUR_FADE_DELAY * 10}>
+            <h2 className="text-xl font-bold">Open Source</h2>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 10.5}>
+            <GithubCalendarComponent />
+          </BlurFade>
+        </div>
+      </section>
       <section id="projects">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
           <ProjectsSection />
@@ -145,6 +157,7 @@ export default function Page() {
           <ContactSection />
         </BlurFade>
       </section>
+      <VisitorCounter />
     </main>
   );
 }

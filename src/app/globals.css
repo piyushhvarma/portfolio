@@ -233,4 +233,13 @@
     @apply border-b-0;
   }
 
+  /* Hide GitHub Calendar scrollbar but keep it swipable */
+  .react-activity-calendar__scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  .react-activity-calendar__scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
 }
