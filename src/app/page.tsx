@@ -12,6 +12,7 @@ import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 import GithubCalendarComponent from "@/components/github-calendar";
 import VisitorCounter from "@/components/visitor-counter";
+import { HyperText } from "@/components/ui/hyper-text";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -22,12 +23,22 @@ export default function Page() {
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between">
             <div className="gap-2 flex flex-col order-2 md:order-1">
-              <BlurFadeText
+              <BlurFade
                 delay={BLUR_FADE_DELAY}
-                className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl"
                 yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
-              />
+              >
+                <div className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl flex items-center">
+                  Hi, I&apos;m&nbsp;
+                  <HyperText
+                    duration={800}
+                    startOnView={true}
+                    as="span"
+                    className="font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tighter text-foreground cursor-pointer"
+                  >
+                    {DATA.name.split(" ")[0]}
+                  </HyperText>
+                </div>
+              </BlurFade>
               <BlurFadeText
                 className="text-muted-foreground max-w-[600px] md:text-lg lg:text-xl"
                 delay={BLUR_FADE_DELAY}
