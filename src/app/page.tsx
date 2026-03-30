@@ -61,9 +61,13 @@ export default function Page() {
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-              <Markdown>
-                {DATA.summary}
-              </Markdown>
+              {typeof DATA.summary === "string" ? (
+                <Markdown>
+                  {DATA.summary}
+                </Markdown>
+              ) : (
+                DATA.summary
+              )}
             </div>
           </BlurFade>
         </div>

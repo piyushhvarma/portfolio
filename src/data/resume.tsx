@@ -19,9 +19,28 @@ export const DATA = {
   location: "Jaipur, IN",
   locationLink: "https://www.google.com/maps/place/jaipur",
   description:
-    "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
-  summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
+    "Software engineer building real-world projects. Exploring AI, shipping ideas, and growing every day.",
+  summary: (
+    <span className="text-muted-foreground leading-relaxed text-base">
+      Building interactive web apps with
+      <span className="mx-1 inline-flex items-center gap-1.5 rounded-md bg-[#3178C6]/10 px-2 py-0.5 text-sm font-medium text-[#3178C6] border border-[#3178C6]/20">
+        <Icons.typescript className="size-4" /> TypeScript
+      </span>
+      ,
+      <span className="mx-1 inline-flex items-center gap-1.5 rounded-md bg-[#00D8FF]/10 px-2 py-0.5 text-sm font-medium text-[#006F87] dark:text-[#00D8FF] border border-[#00D8FF]/20">
+        <Icons.react className="size-4" /> React
+      </span>
+      ,
+      <span className="mx-1 inline-flex items-center gap-1.5 rounded-md bg-black/5 dark:bg-white/10 px-2 py-0.5 text-sm font-medium text-black dark:text-white border border-black/10 dark:border-white/20">
+        <Icons.nextjs className="size-4" /> Next.js
+      </span>
+      , and
+      <span className="mx-1 inline-flex items-center gap-1.5 rounded-md bg-[#38B2AC]/10 px-2 py-0.5 text-sm font-medium text-[#29827E] dark:text-[#38B2AC] border border-[#38B2AC]/20">
+        <Icons.tailwindcss className="size-4" /> Tailwind CSS
+      </span>
+      . Focused on UI/UX, learning DSA and system design, and growing towards building something of my own.
+    </span>
+  ),
   avatarUrl: "/me.png",
   skills: [
     { name: "React", icon: ReactLight },
