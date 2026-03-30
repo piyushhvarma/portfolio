@@ -114,13 +114,6 @@
 @layer base {
   * {
     @apply border-border;
-    cursor: none !important;
-  }
-
-  input,
-  textarea,
-  select {
-    cursor: text !important;
   }
 
   body {
